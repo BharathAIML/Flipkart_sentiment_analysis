@@ -1,74 +1,79 @@
 
-# Microsoft Stock Price Prediction
+# Flipkart Product Review Sentiment Analysis
 
-A brief description of what this project does and who it's for
 
-Overview
 
-This project aims to predict Microsoft stock prices using historical stock market data and deep learning techniques. The model is built using Long Short-Term Memory (LSTM) networks, a type of recurrent neural network (RNN) suitable for time series forecasting.
-## Frameworks Used
-Python
+## Project Overview
+This project focuses on sentiment analysis of Flipkart product reviews. Using Natural Language Processing (NLP) techniques and machine learning, the model classifies reviews as positive or negative based on their ratings and textual content. The analysis involves data preprocessing, visualization, and model training using a Decision Tree classifier.
+## Dataset
+Source: Flipkart product reviews dataset (Kaggle)
+## Features and Techniques Used
+ Data Cleaning & Preprocessing
 
-Pandas
+    1. Tokenization using NLTK
 
-NumPy
+    2. Stopword removal
 
-Matplotlib & Seaborn (for data visualization)
+    3. Lowercasing and punctuation removal
 
-TensorFlow & Keras (for deep learning)
+Data Visualization
 
-Scikit-learn (for data preprocessing)
-## Exploratory Data Analysis (EDA)
-EDA is performed to understand trends in the stock prices and trading volume.Steps include:
+    1. Distribution of ratings
 
-1. Plotting stock opening and closing prices over time
+    2. WordClouds for positive and negative reviews
 
-2. Analyzing trading volume trends
+    3. Feature importance visualization
 
-3. Generating a heatmap to study correlations between features
-## Data Preprocessing
-1. The date column is converted to datetime format.
+Feature Extraction
 
-2. Closing price values are extracted for model training.
+    1. TF-IDF vectorization (max 2500 features)
 
-3. Data is normalized using StandardScaler.
+Machine Learning Model
 
-4. The dataset is split into training (95%) and testing (5%) sets.
+    1. Decision Tree Classifier
 
-5. Time-series batches of 60 days are created as input features for the LSTM model.
-## Model Architecture
-A sequential LSTM model is used with the following layers:
+    2. Training-Test split (67%-33%)
 
-1. LSTM Layer (64 units, return sequences = True)
+    3. Model evaluation using accuracy score and confusion matrix
+## Installation & Dependencies
+install the required Python libraries:
 
-2. LSTM Layer (64 units)
+    pip install pandas nltk matplotlib seaborn wordcloud scikit-learn
+Additionally, download NLTK resources:
 
-3. Dense Layer (128 units)
+    import nltk
+    nltk.download('stopwords')
+    nltk.download('punkt')    
+    nltk.download('punkt_tab')
+## Preprocessing & Execution
 
-4. Dropout Layer (0.5)
+    1. Load the dataset: Ensure flipkart_data.csv is in the working directory.
 
-5. Dense Layer (1 unit, output layer)
-## Model Training
-1. Optimizer: Adam
+    2. Preprocess the data: Tokenization, stopword removal, and text cleaning.
 
-2. Loss function: Mean Absolute Error (MAE)
+    3. Visualize insights: Generate rating distribution, sentiment count, and word clouds.
 
-3. Metric: Root Mean Squared Error (RMSE)
-## Model Evaluation
-1. The trained model is used to predict stock prices for the test dataset.
+    4. Train the model: Decision Tree classification on TF-IDF transformed text data.
 
-2. The predictions are compared with actual closing prices.
+    5. Evaluate performance: Check accuracy and confusion matrix.
+## Visualizations
 
-3. A visualization is provided to compare training, actual test prices, and predicted values.
+    Rating Distribution: Displays how ratings are distributed among reviews.
+
+    Sentiment Count Plot: Shows the proportion of positive vs. negative reviews.
+
+    WordClouds: Highlight frequently used words in positive and negative reviews.
+
+    Feature Importance: Identifies key words influencing the sentiment classification.
 ## Results
-1. The model successfully captures stock price trends with reasonable accuracy.
+    Model Accuracy: Displays training accuracy of the Decision Tree classifier.
 
-2. The prediction results are visualized using Matplotlib.
+    Confusion Matrix: Visual representation of classification performance.
 ## Future Improvements
-1. Fine-tune hyperparameters for better accuracy.
+    Experiment with advanced models (e.g., Random Forest, SVM, Neural Networks)
 
-2. Experiment with different sequence lengths for input features.
+    Hyperparameter tuning for improved accuracy
 
-3. Use additional technical indicators to enhance predictions.
+    Implement deep learning with word embeddings
 
-4. Implement real-time stock price prediction.
+    Expand dataset for better generalization
